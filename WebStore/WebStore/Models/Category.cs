@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebStore.Models
 {
@@ -7,6 +8,8 @@ namespace WebStore.Models
         [Key]
         public int _idCategory { get; private set; }
         public string Name { get; set; }
+
+        public List<Product> Products { get; set; }
 
         public Category()
         {
