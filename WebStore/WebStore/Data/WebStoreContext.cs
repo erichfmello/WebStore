@@ -16,6 +16,7 @@ namespace WebStore.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ShoppingCart>().HasKey(item => new { item._cpf, item._idProduct });
         }
 
         public DbSet<Category> Categorie { get; set; }

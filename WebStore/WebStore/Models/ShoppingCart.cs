@@ -5,7 +5,6 @@ namespace WebStore.Models
 {
     public class ShoppingCart
     {
-        [Key]
         [ForeignKey("People")]
         public string _cpf { get; private set; }
         [ForeignKey("Product")]
