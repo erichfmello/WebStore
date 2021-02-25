@@ -1,11 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebStore.Models
 {
     public class ShoppingCart
     {
         [Key]
+        [ForeignKey("People")]
         public string _cpf { get; private set; }
+        [ForeignKey("Product")]
         public int _idProduct { get; private set; }
         public int Amount { get; set; }
 

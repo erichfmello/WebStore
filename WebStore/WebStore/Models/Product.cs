@@ -1,17 +1,20 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Drawing;
 
 namespace WebStore.Models
 {
     public class Product
     {
-        private Bitmap picture;
-
+        [Key]
         public int _idProduct { get; private set; }
         public string Description { get; set; }
         public string Title { get; set; }
         public double Price { get; set; }
-        public Bitmap Picture { get => picture; set => picture = value; }
+        public Bitmap Picture { get; set; }
         public string State { get; set; }
+
+        [ForeignKey("Category")]
         public int _idCategory { get; set; }
         public Category Category { get; set; }
 
@@ -19,9 +22,8 @@ namespace WebStore.Models
         {
         }
 
-        public Product(Bitmap picture, int idProduct, string title, double price, string state)
+        public Product(int idProduct, string title, double price, string state)
         {
-            this.picture = picture;
             _idProduct = idProduct;
             Title = title;
             Price = price;
