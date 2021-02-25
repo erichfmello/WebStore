@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebStore.Data;
+using WebStore.Services;
 
 namespace WebStore
 {
@@ -29,6 +30,8 @@ namespace WebStore
 
             services.AddDbContext<WebStoreContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("WebStoreContext")));
+
+            services.AddScoped<HomeSerice>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

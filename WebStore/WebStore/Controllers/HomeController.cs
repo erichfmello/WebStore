@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Models;
+using WebStore.Services;
 
 namespace WebStore.Controllers
 {
@@ -20,7 +21,9 @@ namespace WebStore.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            People people = new People();
+            
+            return View(people);
         }
 
         public IActionResult Privacy()
