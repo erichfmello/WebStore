@@ -13,7 +13,5 @@ namespace WebStore.Data
             : base(options)
         {
         }
-
-        public DbSet<WebStore.Models.Delete> Delete { get; set; }
     }
 }

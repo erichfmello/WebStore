@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - WebStore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrapFlatly.css" />
+    <script src="https://kit.fontawesome.com/f49451d571.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -22,7 +24,19 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Painel Admin</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" style="align-content:flex-end">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a title="Carrinho" class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
