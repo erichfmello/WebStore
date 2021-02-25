@@ -18,9 +18,9 @@ namespace WebStore.Data
         {
         }
 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<People> Peoples { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<Category> Categorie { get; set; }
+        public DbSet<People> People { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ShoppingCart> ShoppingCart { get; set; }
     }
 }

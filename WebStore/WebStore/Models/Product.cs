@@ -11,7 +11,7 @@ namespace WebStore.Models
         public string Description { get; set; }
         public string Title { get; set; }
         public double Price { get; set; }
-        public Bitmap Picture { get; set; }
+        public byte[] Picture { get; set; }
         public string State { get; set; }
 
         [ForeignKey("Category")]
@@ -30,7 +30,7 @@ namespace WebStore.Models
             State = state;
         }
 
-        public Product(int idProduct, string description, string title, double price, Bitmap picture, string state)
+        public Product(int idProduct, string description, string title, double price, byte[] picture, string state, int idCategory, Category category)
         {
             _idProduct = idProduct;
             Description = description;
@@ -38,6 +38,8 @@ namespace WebStore.Models
             Price = price;
             Picture = picture;
             State = state;
+            _idCategory = idCategory;
+            Category = category;
         }
     }
 }

@@ -7,18 +7,18 @@ using WebStore.Models;
 
 namespace WebStore.Services
 {
-    public class HomeSerice
+    public class PeopleService
     {
         private readonly WebStoreContext _context;
 
-        public HomeSerice(WebStoreContext context)
+        public PeopleService(WebStoreContext context)
         {
             _context = context;
         }
 
-        public People getPeoploByCpf(string cpf)
+        public People GetPeopleByUserKey(string user, string key)
         {
-            return _context.People.FirstOrDefault(obj => obj._cpf == cpf);
+            return _context.People.FirstOrDefault(obj => obj.User == user && obj.Password == key);
         }
     }
 }

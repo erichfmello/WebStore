@@ -13,16 +13,25 @@ namespace WebStore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly HomeSerice _homeSerice;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, HomeSerice homeSerice)
         {
             _logger = logger;
+            _homeSerice = homeSerice;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? cpf)
         {
-            People people = new People();
-            
+            People people;
+            if (cpf == null)
+            {
+                people = new People();
+            }
+            else
+            {
+                people = _homeSerice.getPeoploByCpf(cpf);
+            }
             return View(people);
         }
 

@@ -1,0 +1,26 @@
+﻿@model WebStore.Models.People;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Acessar o sistema:</h1>
+
+<div>
+    <form asp-area="" asp-controller="AccessSystem" asp-action="AccessSystem">
+        <div class="form-group">
+            <label asp-for="User">
+                <input class="form-control" type="text" placeholder="Login:" asp-for="User">
+            </label>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">
+                <input class="form-control" type="password" placeholder="Senha:" asp-for="Password">
+            </label>
+        </div>
+        <div>
+            <input type="submit" value="Ok" class="btn btn-default" />
+            <input type="button" value="Novo usuário" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

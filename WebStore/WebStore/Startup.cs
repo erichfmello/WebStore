@@ -32,6 +32,7 @@ namespace WebStore
                     options.UseSqlServer(Configuration.GetConnectionString("WebStoreContext")));
 
             services.AddScoped<HomeSerice>();
+            services.AddScoped<PeopleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
