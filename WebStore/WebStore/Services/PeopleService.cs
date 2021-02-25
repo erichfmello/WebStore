@@ -20,5 +20,19 @@ namespace WebStore.Services
         {
             return _context.People.FirstOrDefault(obj => obj.User == user && obj.Password == key);
         }
+
+        public bool PostPeople(People people)
+        {
+            try
+            {
+                _context.People.Add(people);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace WebStore.Controllers
             _homeSerice = homeSerice;
         }
 
-        public IActionResult Index(string? cpf)
+        public IActionResult Index(string cpf)
         {
             People people;
             if (cpf == null)
@@ -33,6 +33,7 @@ namespace WebStore.Controllers
                 people = _homeSerice.getPeoploByCpf(cpf);
             }
             return View(people);
+            // return RedirectToAction("Create", "People");
         }
 
         public IActionResult Privacy()

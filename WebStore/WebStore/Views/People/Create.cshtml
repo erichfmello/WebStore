@@ -1,0 +1,86 @@
+﻿@model WebStore.Models.People;
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<div>
+    <form asp-area="" asp-controller="People" asp-action="Create">
+        <div class="form-row m-12">
+            <div class="form-group col-md-4">
+                <label asp-for="_cpf" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="CPF:" asp-for="_cpf">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Name" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Nome:" asp-for="Name">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Email" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="e-mail:" asp-for="Email">
+            </div>
+        </div>
+        <div class="form-row m-12">
+            <div class="form-group col-md-1">
+                <label asp-for="Ddi" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="DDI:" asp-for="Ddi">
+            </div>
+            <div class="form-group col-md-1">
+                <label asp-for="Ddd" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="DDD:" asp-for="Ddd">
+            </div>
+            <div class="form-group col-md-2">
+                <label asp-for="CelphoneNumber" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Telefone:" asp-for="CelphoneNumber">
+            </div>
+        </div>
+        <div class="form-row m-12">
+            <div class="form-group col-md-4">
+                <label asp-for="Cep" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="CEP:" asp-for="Cep">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Address" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Endereço:" asp-for="Address">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Number" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Número:" asp-for="Number">
+            </div>
+        </div>
+        <div class="form-row m-12">
+            <div class="form-group col-md-4">
+                <label asp-for="Complement" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Complemento:" asp-for="Complement">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Neighborhood" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Bairro:" asp-for="Neighborhood">
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="City" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Cidade:" asp-for="City">
+            </div>
+            <div class="form-group col-md-1">
+                <label asp-for="State" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="UF:" asp-for="State">
+            </div>
+        </div>
+        <div class="form-row m-12">
+            <div class="form-group col-md-4">
+                <label asp-for="User" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Usuário:" asp-for="User">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Password" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="password" placeholder="Senha:" asp-for="Password">
+            </div>
+        </div>
+        
+        <input type="submit" value="Cadastrar" class="btn btn-default" style="width:130px" />
+        <a class="btn btn-primary" asp-area="" asp-controller="AccessSystem" asp-action="Index" style="width:130px; margin-left:50px">Cancelar</a>
+
+    </form>
+</div>

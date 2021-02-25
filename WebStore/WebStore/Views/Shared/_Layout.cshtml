@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/f49451d571.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    @model WebStore.Models.People;
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -19,26 +20,75 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Painel Admin</a>
-                        </li>
-                    </ul>
+                    @if (Model != null)
+                    {
+                        if (Model.AccessType == "SADM" || Model.AccessType == "ADM")
+                        {
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" asp-route-cpf="@Model._cpf">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Painel Admin</a>
+                                </li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" asp-route-cpf="@Model._cpf">Home</a>
+                                </li>
+                            </ul>
+                        }
+                    }
+                    else
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                        </ul>
+                    }
                 </div>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" style="align-content:flex-end">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AccessSystem" asp-action="Index">Entrar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a title="Carrinho" class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">
-                                <i class="fas fa-shopping-cart"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    @if (Model != null)
+                    {
+                        if (Model.AccessType != null)
+                        {
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Sair</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a title="Carrinho" class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a title="Editar informações" class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">
+                                        <i class="fas fa-cog"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="AccessSystem" asp-action="Index">Entrar</a>
+                                </li>
+                            </ul>
+                        }
+                    }
+                    else
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="AccessSystem" asp-action="Index">Entrar</a>
+                            </li>
+                        </ul>
+                    }
                 </div>
             </div>
         </nav>
