@@ -33,6 +33,9 @@ namespace WebStore
 
             services.AddScoped<HomeSerice>();
             services.AddScoped<PeopleService>();
+            services.AddScoped<ProductService>();
+            services.AddScoped<CategoryService>();
+            services.AddScoped<ShoppingCartService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

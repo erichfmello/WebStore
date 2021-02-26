@@ -16,6 +16,11 @@ namespace WebStore.Services
             _context = context;
         }
 
+        public People GetPeopleByCpf(string cpf)
+        {
+            return _context.People.FirstOrDefault(obj => obj._cpf == cpf);
+        }
+
         public People GetPeopleByUserKey(string user, string key)
         {
             return _context.People.FirstOrDefault(obj => obj.User == user && obj.Password == key);
@@ -26,6 +31,20 @@ namespace WebStore.Services
             try
             {
                 _context.People.Add(people);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool PutPeople(People people)
+        {
+            try
+            {
+                _context.People.Update(people);
                 _context.SaveChanges();
                 return true;
             }

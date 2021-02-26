@@ -24,5 +24,10 @@ namespace WebStore.Models
             _idProduct = idProduct;
             Amount = amount;
         }
+
+        public double GetTotalPrice(double price)
+        {
+            return Amount * price;
+        }
     }
 }

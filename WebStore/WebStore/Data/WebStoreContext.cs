@@ -19,7 +19,7 @@ namespace WebStore.Data
             modelBuilder.Entity<ShoppingCart>().HasKey(item => new { item._cpf, item._idProduct });
         }
 
-        public DbSet<Category> Categorie { get; set; }
+        public DbSet<Category> Category { get; set; }
         public DbSet<People> People { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<ShoppingCart> ShoppingCart { get; set; }

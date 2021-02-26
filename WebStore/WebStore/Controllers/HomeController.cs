@@ -6,7 +6,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Models;
+using WebStore.Models.ViewModel;
 using WebStore.Services;
+
+
 
 namespace WebStore.Controllers
 {
@@ -14,16 +17,24 @@ namespace WebStore.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly HomeSerice _homeSerice;
+        private readonly PeopleService _peopleService;
+        private readonly ProductService _productService;
 
-        public HomeController(ILogger<HomeController> logger, HomeSerice homeSerice)
+        public HomeController(ILogger<HomeController> logger, HomeSerice homeSerice, PeopleService peopleService, ProductService productService)
         {
             _logger = logger;
             _homeSerice = homeSerice;
+            _peopleService = peopleService;
+            _productService = productService;
         }
 
         public IActionResult Index(string cpf)
         {
             People people;
+            List<Product> products = _productService.GetProducts();
+
+            ProductCategoryVM productCategoryVM = new ProductCategoryVM();
+
             if (cpf == null)
             {
                 people = new People();
@@ -32,7 +43,11 @@ namespace WebStore.Controllers
             {
                 people = _homeSerice.getPeoploByCpf(cpf);
             }
-            return View(people);
+
+            // people = _peopleService.GetPeopleByCpf("11122233377");
+            productCategoryVM.people = people;
+            productCategoryVM.Products = products;
+            return View(productCategoryVM);
             // return RedirectToAction("Create", "People");
         }
 

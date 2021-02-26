@@ -7,6 +7,7 @@ namespace WebStore.Models
     {
         [Key]
         public int _idCategory { get; private set; }
+        [Display(Name = "Categoria")]
         public string Name { get; set; }
 
         public List<Product> Products { get; set; }
@@ -15,9 +16,8 @@ namespace WebStore.Models
         {
         }
 
-        public Category(int idCategory, string name)
+        public Category(string name)
         {
-            _idCategory = idCategory;
             Name = name;
         }
     }

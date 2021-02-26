@@ -1,0 +1,79 @@
+﻿@model WebStore.Models.ViewModel.ProductCategoryVM;
+
+@{
+    ViewData["Title"] = Model.people.Name.ToString();
+}
+
+<h1>Editar informações do @ViewData["Title"]</h1>
+
+<div>
+    <form asp-area="" asp-controller="People" asp-action="Edit">
+        <input class="form-control col-md-12" type="hidden" placeholder="CPF:" asp-for="people._cpf">
+        <div class="form-row m-12">
+            <div class="form-group col-md-4">
+                <label asp-for="people.Name" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Nome:" asp-for="people.Name">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="people.Email" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="e-mail:" asp-for="people.Email">
+            </div>
+        </div>
+        <div class="form-row m-12">
+            <div class="form-group col-md-1">
+                <label asp-for="people.Ddi" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="DDI:" asp-for="people.Ddi">
+            </div>
+            <div class="form-group col-md-1">
+                <label asp-for="people.Ddd" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="DDD:" asp-for="people.Ddd">
+            </div>
+            <div class="form-group col-md-2">
+                <label asp-for="people.CelphoneNumber" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Telefone:" asp-for="people.CelphoneNumber">
+            </div>
+        </div>
+        <div class="form-row m-12">
+            <div class="form-group col-md-4">
+                <label asp-for="people.Cep" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="CEP:" asp-for="people.Cep">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="people.Address" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Endereço:" asp-for="people.Address">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="people.Number" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Número:" asp-for="people.Number">
+            </div>
+        </div>
+        <div class="form-row m-12">
+            <div class="form-group col-md-4">
+                <label asp-for="people.Complement" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Complemento:" asp-for="people.Complement">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="people.Neighborhood" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Bairro:" asp-for="people.Neighborhood">
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="people.City" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Cidade:" asp-for="people.City">
+            </div>
+            <div class="form-group col-md-1">
+                <label asp-for="people.State" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="UF:" asp-for="people.State">
+            </div>
+        </div>
+        <div class="form-row m-12">
+            <div class="form-group col-md-4">
+                <label asp-for="people.User" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Usuário:" asp-for="people.User">
+            </div>
+        </div>
+
+        <input type="submit" value="Salvar" class="btn btn-default" style="width:130px" />
+        <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Index" asp-route-cpf="@Model.people._cpf" style="width:130px; margin-left:50px">Cancelar</a>
+
+    </form>
+</div>

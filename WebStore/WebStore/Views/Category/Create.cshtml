@@ -1,0 +1,21 @@
+﻿@model WebStore.Models.ViewModel.ProductCategoryVM;
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Nova Categoria</h1>
+
+<div>
+    <form asp-area="" asp-controller="Category" asp-action="Create" asp-route-cpf="@Model.people._cpf">
+        <div class="form-row m-12">
+            <div class="form-group col-md-4">
+                <label asp-for="Categories[0].Name" class="col-md-6"></label>
+                <input class="form-control col-md-12" type="text" placeholder="Nome da categoria:" asp-for="Name" />
+            </div>
+        </div>
+
+        <input type="submit" value="Cadastrar" class="btn btn-default" style="width:130px" />
+        <a class="btn btn-primary" asp-area="" asp-controller="Product" asp-action="Create" asp-route-cpf="@Model.people._cpf" style="width:130px; margin-left:50px">Cancelar</a>
+    </form>
+</div>

@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/f49451d571.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    @model WebStore.Models.People;
+    @model WebStore.Models.ViewModel.ProductCategoryVM;
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -20,16 +20,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    @if (Model != null)
+                    @if (Model != null && Model.people != null)
                     {
-                        if (Model.AccessType == "SADM" || Model.AccessType == "ADM")
+                        if (Model.people.AccessType == "SADM" || Model.people.AccessType == "ADM")
                         {
                             <ul class="navbar-nav flex-grow-1">
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" asp-route-cpf="@Model._cpf">Home</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" asp-route-cpf="@Model.people._cpf">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Painel Admin</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="People" asp-action="CreateUserMaster" asp-route-cpf="@Model.people._cpf">Cadastrar usuário</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index" asp-route-cpf="@Model.people._cpf">Cadastrar produto</a>
                                 </li>
                             </ul>
                         }
@@ -37,7 +40,7 @@
                         {
                             <ul class="navbar-nav flex-grow-1">
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" asp-route-cpf="@Model._cpf">Home</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" asp-route-cpf="@Model.people._cpf">Home</a>
                                 </li>
                             </ul>
                         }
@@ -54,31 +57,34 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" style="align-content:flex-end">
                     @if (Model != null)
                     {
-                        if (Model.AccessType != null)
+                        if (Model.people != null)
                         {
-                            <ul class="navbar-nav flex-grow-1">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Sair</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a title="Carrinho" class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a title="Editar informações" class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">
-                                        <i class="fas fa-cog"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        }
-                        else
-                        {
-                            <ul class="navbar-nav flex-grow-1">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="AccessSystem" asp-action="Index">Entrar</a>
-                                </li>
-                            </ul>
+                            if (Model.people.AccessType != null)
+                            {
+                                <ul class="navbar-nav flex-grow-1">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Sair</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a title="Carrinho" class="nav-link text-dark" asp-area="" asp-controller="ShoppingCart" asp-action="Edit" asp-route-cpf="@Model.people._cpf">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a title="Editar informações" class="nav-link text-dark" asp-area="" asp-controller="People" asp-action="Edit" asp-route-_cpf="@Model.people._cpf">
+                                            <i class="fas fa-cog"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <ul class="navbar-nav flex-grow-1">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="AccessSystem" asp-action="Index">Entrar</a>
+                                    </li>
+                                </ul>
+                            }
                         }
                     }
                     else
