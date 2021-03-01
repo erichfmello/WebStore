@@ -9,8 +9,6 @@ using WebStore.Models;
 using WebStore.Models.ViewModel;
 using WebStore.Services;
 
-
-
 namespace WebStore.Controllers
 {
     public class HomeController : Controller
@@ -30,6 +28,7 @@ namespace WebStore.Controllers
 
         public IActionResult Index(string cpf)
         {
+            
             People people;
             List<Product> products = _productService.GetProducts();
 
@@ -44,7 +43,7 @@ namespace WebStore.Controllers
                 people = _homeSerice.getPeoploByCpf(cpf);
             }
 
-            // people = _peopleService.GetPeopleByCpf("11122233377");
+            people = _peopleService.GetPeopleByCpf("11122233377");
             productCategoryVM.people = people;
             productCategoryVM.Products = products;
             return View(productCategoryVM);

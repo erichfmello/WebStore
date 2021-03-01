@@ -26,7 +26,14 @@ namespace WebStore.Controllers
         {
             People people = _peopleService.GetPeopleByUserKey(user, password);
 
-            return RedirectToAction("Index", "Home", new { cpf = people._cpf });
+            if (people == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home", new { cpf = people._cpf });
+            }
         }
     }
 }

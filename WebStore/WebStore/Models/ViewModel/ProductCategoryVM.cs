@@ -25,6 +25,11 @@ namespace WebStore.Models.ViewModel
         [Display(Name = "Quantidade")]
         public int Amount { get; set; }
 
+        public string Latitude { get; set; }
+        public string Logitude { get; set; }
+
+        public byte[] Image { get; set; }
+
         public ProductCategoryVM()
         {
         }
