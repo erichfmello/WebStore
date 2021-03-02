@@ -43,7 +43,7 @@ namespace WebStore.Controllers
                 people = _homeSerice.getPeoploByCpf(cpf);
             }
 
-            people = _peopleService.GetPeopleByCpf("11122233377");
+            // people = _peopleService.GetPeopleByCpf("11122233377");
             productCategoryVM.people = people;
             productCategoryVM.Products = products;
             return View(productCategoryVM);
